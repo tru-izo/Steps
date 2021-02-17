@@ -16,7 +16,7 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background-color: rgb(129, 127, 123);
+  background-color: rgb(8, 8, 8);
 }
 
 .container {
@@ -83,8 +83,11 @@ body {
   font-size: 1rem;
 }
 
-.btn:active{
-    transform: scale(0.98);
+.btn:active {
+  transform: scale(0.98);
 }
 
-
+.btn:disabled {
+  background-color: $empty;
+  cursor: not-allowed;
+}
