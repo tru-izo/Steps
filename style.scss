@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
 
+$filled: #7c4aaa;
+$empty: #e0e0e0;
+
 * {
   box-sizing: border-box;
 }
@@ -13,7 +16,7 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background-color: floralwhite;
+  background-color: rgb(129, 127, 123);
 }
 
 .container {
@@ -29,9 +32,20 @@ body {
   width: 21rem;
 }
 
+.progress::before {
+  position: absolute;
+  background-color: $empty;
+  top: 50%;
+  height: 4px;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: -1;
+  content: " ";
+}
+
 .progress {
   position: absolute;
-  background-color: rgb(66, 118, 128);
+  background-color: $filled;
   top: 50%;
   height: 4px;
   width: 0%;
@@ -40,13 +54,37 @@ body {
   transition: 0.4s ease;
 }
 
-.progress::before {
-  position: absolute;
-  background-color: rgb(133, 137, 138);
-  top: 50%;
-  height: 4px;
-  width: 100%;
-  transform: translateY(-50%);
-  z-index: -1;
-  content: '';
+.step {
+  border-radius: 50%;
+  background-color: #7c4aaa;
+  width: 2rem;
+  color: white;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $empty;
+  transition: 0.4s ease;
 }
+
+.step.active {
+  border-color: $filled;
+}
+
+.btn {
+  background-color: $filled;
+  color: #fff;
+  border: 0;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 1rem;
+}
+
+.btn:active{
+    transform: scale(0.98);
+}
+
+
